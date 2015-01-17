@@ -22,14 +22,14 @@
 		margin-right: auto;
 		
 		/* width: (containers) */
-		width: 1200px;
+		width: 4000px;
 	}
 
 	/* Modifiers */
 	
 		.container.small {
 			/* width: (containers) * 0.75; */
-			width: 900px;
+			width: 1200px;
 		}
 
 		.container.big {

@@ -30,13 +30,28 @@
 			document.getElementById("dateheader").innerHTML = date;
 			//mArray[m-1] + " " + d;
 			}
+			// get selectbox
+			var selectBox = document.getElementById('datenum');
+			// loop
+			for (var i = 1; i <= 30; i++) {
+				// create option element
+				var option = document.createElement('option');
+				// add value and text name
+				option.value = i;
+				option.innerHTML = i;
+				// add the option element to the selectbox
+				selectBox.appendChild(option);
+			}
 		</script>
 	</head>
 	<body id="top">
 
 		<!-- Header -->
+			
+			
 			<header id="header" class="skel-layers-fixed">
 				<h1><a href="#">Blast from the Past</a></h1>
+				<br>
 				<nav id="nav">
 					<ul>
 						<li><strong>Categories</strong></li>
@@ -48,13 +63,11 @@
 						<li><a href="#">Science</a></li>
 						<li><a href="#">Sports</a></li>
 						<li><a href="#">Arts</a></li>
-						<li><a href="#">Lifestyle</a></li>
-						<li><a href="#">World</a></li>
-						<li><a href="#">US</a></li>
 						<li><a href="#">People</a></li>
 						<li><a href="#">Misc</a></li>
 					</ul>
-				</nav>-->
+				</nav>
+				</nav>
 			</header>
 
 		<!-- Banner -->
@@ -70,9 +83,8 @@
 						  <option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
 						</select></li>
 						<li>
-						<select>
-						  <option>January</option><option>February</option><option>March</option><option>April</option>
-						  <option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+						<select id="datenum" >
+						  <option value="-1">&nbsp;</option>
 						</select></li>
 						
 						<li><a href="#content" class="button big special">Blast Away</a></li>
@@ -90,29 +102,11 @@
 			<footer id="footer">
 				<div class="container">
 					<div class="row double">
-						<div class="6u">
+						<!--<div class="6u">
 							<div class="row collapse-at-2">
-								<div class="6u">
-									<h3>Accumsan</h3>
-									<ul class="alt">
-										<li><a href="#">Nascetur nunc varius</a></li>
-										<li><a href="#">Vis faucibus sed tempor</a></li>
-										<li><a href="#">Massa amet lobortis vel</a></li>
-										<li><a href="#">Nascetur nunc varius</a></li>
-									</ul>
-								</div>
-								<div class="6u">
-									<h3>Faucibus</h3>
-									<ul class="alt">
-										<li><a href="#">Nascetur nunc varius</a></li>
-										<li><a href="#">Vis faucibus sed tempor</a></li>
-										<li><a href="#">Massa amet lobortis vel</a></li>
-										<li><a href="#">Nascetur nunc varius</a></li>
-									</ul>
-								</div>
 							</div>
-						</div>
-						<div class="6u">
+						</div>-->
+						<!--<div class="6u">
 							<h2>Aliquam Interdum</h2>
 							<p>Blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan justo aliquet.</p>
 							<ul class="icons">
@@ -122,12 +116,12 @@
 								<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 								<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
 							</ul>
-						</div>
+						</div>-->
 					</div>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li>
+						<li>&copy; 2014 MHacks</li>
 						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+						
 					</ul>
 				</div>
 			</footer>
