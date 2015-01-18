@@ -4,19 +4,46 @@
 <head>
 
 
-
-    <title>Past Times</title>
-
-
-
+	
+    <script src="js/script.js" type="text/javascript"></script> 
+    <title></title>
 
 </head>
 
 <body id="page-top" class="index">
 
+	<!-- testing stuff -->
+	<button onclick="display()">try me</button>
+	<p id="display"></p>
 
-    <!-- javascript -->
-    <script src="js/script.js"></script>
+    <!-- javascript that is supposed to show the data-->
+    <script type="text/javascript">
+		var listofevents = []; 
+		//initializes the object
+		//var objectforoutput;
+		historyData.load(getData(1,1));
+		
+		function setlist() {
+			var i;
+			for (i = objectforoutput.Events.length-1; i >= 0; i--) {
+				var dateandevent = objectforoutput.Events[i].text + ", " + objectforoutput.Events[i].year;
+				listofevents[i] = dateandevent;
+			}
+			return listofevents;
+			//document.getElementById("display").innerHTML = listofevents;
+		};
+		
+		function display() {
+			var events = setlist();
+			var text = "";
+			for (i = events.length-1; i >= 0; i--) {
+				text += events[i] + "<br><br>";
+			}
+			
+			document.getElementById("display").innerHTML = text;
+		};
+	</script>
+
 
 </body>
 
