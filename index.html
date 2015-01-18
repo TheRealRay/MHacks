@@ -356,13 +356,13 @@
 							listofevents[i] = dateandevent;
 							//document.getElementById("display").innerHTML = listofevents[i];
 						}
-						var text = "";
+						//var text = "";
 						/*
 						for (i = listofevents.length-1; i >= 0; i--) {
 							text += listofevents[i] + "<br><br>";
 						}
 						document.getElementById("display").innerHTML = text;
-						console.log(listofevents); */
+						*/ 
 					}
 				}) //getData(month,day));
 				
@@ -372,6 +372,7 @@
 				//document.getElementById("display").innerHTML = listofevents;
 			};
 			var currentElem = 0;
+			//console.log(stuff[currentElem]);
 			function display() {
 				/*var events = setlist();
 				var text = "";
@@ -380,16 +381,22 @@
 				}
 				document.getElementById("display").innerHTML = text; */
 				var stuff = setlist();
-				var text = "";
-				document.getElementById('display').innerHTML=listofevents[currentElem];
-
-				currentElem += 1
+				console.log(currentElem);
+				if (currentElem === 0) {
+					stuff = " Blast Off! ";
+				}
+				async = false;
+				//var text = "";
+				console.log(stuff[currentElem]);
+				document.getElementById('display').innerHTML=stuff[currentElem];
+				
+				
 
 				if (currentElem >= stuff.length){
 					currentElem = 0;
 				}
-
-				setTimeout("display()",3000);
+				currentElem += 1
+				setTimeout("display()",5000);
 				
 			};
 			
