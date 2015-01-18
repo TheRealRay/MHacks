@@ -192,7 +192,7 @@
 						  <option value="0">Day</option>
 						</select></li>
 						
-						<li><a href="#content" class="button big special" onclick="determinedate1(); display();">Blast Away</a></li>
+						<li><a href="#content" class="button big special" onclick="display();">Blast Away</a></li>
 						
 					</ul>
 					<p id="display"></p>
@@ -335,13 +335,13 @@
 	        	}
 	    	}
 			
-
-			var objectforoutput;
+			var listofevents = [];
+			//var objectforoutput;
 			function setlist() {
 				
 				var month = document.getElementById('months').value; //months.value;
 				var day = parseInt(document.getElementById('opts').value) + 1; // opts.value;
-				var listofevents = []; 
+				 
 				//initializes the object
 				
 				historyData.load({
@@ -354,9 +354,15 @@
 						for (i = response.Events.length-1; i >= 0; i--) {
 							var dateandevent = response.Events[i].text + " " + response.Events[i].year;
 							listofevents[i] = dateandevent;
+							//document.getElementById("display").innerHTML = listofevents[i];
 						}
-						
-						console.log(listofevents);
+						var text = "";
+						/*
+						for (i = listofevents.length-1; i >= 0; i--) {
+							text += listofevents[i] + "<br><br>";
+						}
+						document.getElementById("display").innerHTML = text;
+						console.log(listofevents); */
 					}
 				}) //getData(month,day));
 				
@@ -365,14 +371,26 @@
 				return listofevents;
 				//document.getElementById("display").innerHTML = listofevents;
 			};
-		
+			var currentElem = 0;
 			function display() {
-				var events = setlist();
+				/*var events = setlist();
 				var text = "";
 				for (i = events.length-1; i >= 0; i--) {
 					text += events[i] + "<br><br>";
 				}
-				document.getElementById("display").innerHTML = text;
+				document.getElementById("display").innerHTML = text; */
+				var stuff = setlist();
+				var text = "";
+				document.getElementById('display').innerHTML=listofevents[currentElem];
+
+				currentElem += 1
+
+				if (currentElem >= stuff.length){
+					currentElem = 0;
+				}
+
+				setTimeout("display()",3000);
+				
 			};
 			
 			
