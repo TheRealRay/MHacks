@@ -90,10 +90,10 @@ historyData = {
 			      month = options.month;
 			      day = options.day;
 	      }
-		  
+		  console.log(options);
 
 			// change the /date/month/day to change the date
-		    this.jsonP.get(this.host + '/date' + '/' + month + '/' + day, {}, function(tmp) {
+		    this.jsonP.get(this.host + 'date' + '/' + month + '/' + day, {}, function(tmp) {
 				    historyData.data = tmp.data;
 				    historyData.url = tmp.url;
 				    historyData.date = tmp.date;
@@ -104,16 +104,7 @@ historyData = {
 			  });
 	  }
 }
-/*
-historyData.load({
-	month: 1,
-	day: 12,
-	callback: function(data) {
-		console.log('done');
-		d = data;
-	} 
-});
-*/
+
 function getData(monthin, dayin) {
 	var monthvar = monthin;
 	var dayvar = dayin;

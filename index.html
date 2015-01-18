@@ -338,18 +338,30 @@
 
 			var objectforoutput;
 			function setlist() {
-				var month = months.value;
-				var day = opts.value;
+				
+				var month = document.getElementById('months').value; //months.value;
+				var day = parseInt(document.getElementById('opts').value) + 1; // opts.value;
 				var listofevents = []; 
 				//initializes the object
-			
-				historyData.load(getData(month,day));
+				
+				historyData.load({
+					month: month,
+					day: day,
+					callback: function(response) {
+						console.log('done!')
+						console.log(response);
+						var i;
+						for (i = response.Events.length-1; i >= 0; i--) {
+							var dateandevent = response.Events[i].text + " " + response.Events[i].year;
+							listofevents[i] = dateandevent;
+						}
+						
+						console.log(listofevents);
+					}
+				}) //getData(month,day));
+				
 
-				var i;
-				for (i = objectforoutput.Events.length-1; i >= 0; i--) {
-					var dateandevent = objectforoutput.Events[i].text + " " + objectforoutput.Events[i].year;
-					listofevents[i] = dateandevent;
-				}
+				
 				return listofevents;
 				//document.getElementById("display").innerHTML = listofevents;
 			};
