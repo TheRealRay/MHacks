@@ -2,47 +2,67 @@
 <html lang="en">
 
 <head>
-
-
-	
-    <script src="js/script.js" type="text/javascript"></script> 
+    
     <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lounge.css">
+    <script src="js/script.js" type="text/javascript"></script> 
 
 </head>
 
 <body id="page-top" class="index">
 
 	<!-- testing stuff -->
-	<button onclick="display()">try me</button>
-	<p id="display"></p>
+	<button onclick="slideShow()">try me</button>
+	<p id="slideShow"></p>
 
     <!-- javascript that is supposed to show the data-->
     <script type="text/javascript">
 		var listofevents = []; 
 		//initializes the object
-		//var objectforoutput;
+		var objectforoutput;
+		var currentElem = 0;
 		historyData.load(getData(1,1));
-		
 		function setlist() {
-			var i;
-			for (i = objectforoutput.Events.length-1; i >= 0; i--) {
+			var i = 0;
+			while (i < objectforoutput.Events.length) {
 				var dateandevent = objectforoutput.Events[i].text + ", " + objectforoutput.Events[i].year;
 				listofevents[i] = dateandevent;
-			}
+				i = i + 1;
+			};
 			return listofevents;
 			//document.getElementById("display").innerHTML = listofevents;
 		};
 		
-		function display() {
-			var events = setlist();
-			var text = "";
-			for (i = events.length-1; i >= 0; i--) {
-				text += events[i] + "<br><br>";
+		function slideShow() {
+			var stuff = setlist();
+				var text = "";
+				document.getElementById('slideShow').innerHTML=listofevents[currentElem];
+
+			currentElem += 1
+
+			if (currentElem >= stuff.length){
+				currentElem = 0;
 			}
-			
-			document.getElementById("display").innerHTML = text;
+
+			setTimeout("slideShow()",10000);
 		};
+
 	</script>
+
+<table width="100%" cellpadding="2" cellspacing="2">
+
+<tr>
+
+<td>
+
+<div id="div_display"><script type="text/javascript" language="javascript">slideShow();</script></div>
+
+</td>
+
+</tr>
+
+</table>
 
 
 </body>
